@@ -434,10 +434,10 @@
                 //getExif()
                 let img = document.createElement('img');
                 img.src = './imagegallery/' + n + '.jpg';
-                img.onload = getImageDescription(n)
+                img.onload = getImageDescription(img.src)
                 img.addEventListener('load', () => {
                     let div = `<div class="divPageSize" id="` + n + `">
-                <div class="row " >
+                <div class="row" >
                 <div class="divSquareMaxi">
              <img data-lazy-image data-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzIDIiPjwvc3ZnPg==" 
              src="${img.src}" alt="Demo img" id="img${n}"> 
@@ -467,10 +467,9 @@
                 });
             }
             function getImageDescription(imageId) {
-                imageId = "img" + imageId
                 console.log("getImageDescription started")
                 console.log(imageId)
-                var image = document.getElementById(imageId);
+                var image = imageId //document.getElementById(imageId);
                 EXIF.getData(image, function () {
                 var MetaData = EXIF.getAllTags(this);
                 console.log(JSON.stringify(MetaData, null, "\t"));
