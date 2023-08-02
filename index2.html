@@ -431,7 +431,7 @@
             //window.onload = getExif;
 
             function doPortItem(n) {
-                getExif
+                getExif(n)
                 let img = document.createElement('img');
                 img.src = './imagegallery/' + n + '.jpg';
                 img.addEventListener('load', () => {
@@ -459,8 +459,8 @@
             doPortItem(1)
 
             function getExif() {
-                var img1 = document.getElementById("img1");
-                EXIF.getData(img1, function () {
+                var image = document.getElementById("img${n}");
+                EXIF.getData(image, function () {
                 var MetaData = EXIF.getAllTags(this);
                 console.log(JSON.stringify(MetaData, null, "\t"));
                 });
