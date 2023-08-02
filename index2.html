@@ -431,9 +431,10 @@
             //window.onload = getExif;
 
             function doPortItem(n) {
+                getExif()
                 let img = document.createElement('img');
                 img.src = './imagegallery/' + n + '.jpg';
-                img.addEventListener('load', (getExif) => {
+                img.addEventListener('load', () => {
                     let div = `<div class="divPageSize" id="` + n + `">
                 <div class="row " >
                 <div class="divSquareMaxi">
@@ -458,6 +459,7 @@
             doPortItem(1)
 
             function getExif() {
+                console.log("getExif started")
                 var image = document.getElementById("img1");
                 EXIF.getData(image, function () {
                 var MetaData = EXIF.getAllTags(this);
