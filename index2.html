@@ -464,6 +464,9 @@
                 EXIF.getData(image, function () {
                 var MetaData = EXIF.getAllTags(this);
                 console.log(JSON.stringify(MetaData, null, "\t"));
+                console.log(JSON.stringify(MetaData.ImageDescription));
+                console.log(MetaData.ImageDescription);
+
                 return MetaData.ImageDescription;
                 });
             }
