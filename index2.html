@@ -428,19 +428,17 @@
     <div class="container" id='gallery-items'>
 
         <script>
-            // window.onload = filedetails;
+            window.onload = getExif;
 
             function doPortItem(n) {
                 let img = document.createElement('img');
                 img.src = './imagegallery/' + n + '.jpg';
                 img.addEventListener('load', () => {
-                    getExif(n)
-
                     let div = `<div class="divPageSize" id="` + n + `">
                 <div class="row " >
                 <div class="divSquareMaxi">
              <img data-lazy-image data-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzIDIiPjwvc3ZnPg==" 
-             src="${img.src}"  id="img${n}"> 
+             src="${img.src}" alt="Demo img" id="img${n}"> 
            </div>
          </div>
          <div class="row">
@@ -459,15 +457,11 @@
             }
             doPortItem(1)
 
-            function getExif(n) {
-                var image = document.getElementById("img1");
-                EXIF.getData(image, function () {
+            function getExif() {
+                var img1 = document.getElementById("img1");
+                EXIF.getData(img1, function () {
                 var MetaData = EXIF.getAllTags(this);
                 console.log(JSON.stringify(MetaData, null, "\t"));
-                console.log(JSON.stringify(MetaData.ImageDescription));
-                console.log(MetaData.ImageDescription);
-
-                return MetaData.ImageDescription;
                 });
             }
         </script>
