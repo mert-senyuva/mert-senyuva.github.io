@@ -430,10 +430,10 @@
         <script>
             //window.onload = getExif;
 
-            function doPortItem(n,getExif) {
+            function doPortItem(n) {
                 let img = document.createElement('img');
                 img.src = './imagegallery/' + n + '.jpg';
-                img.addEventListener('load', () => {
+                img.addEventListener('load', (getExif) => {
                     let div = `<div class="divPageSize" id="` + n + `">
                 <div class="row " >
                 <div class="divSquareMaxi">
