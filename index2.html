@@ -431,9 +431,10 @@
             //window.onload = getExif;
 
             function doPortItem(n) {
-                getExif()
+                //getExif()
                 let img = document.createElement('img');
                 img.src = './imagegallery/' + n + '.jpg';
+                img.onload = getExif
                 img.addEventListener('load', () => {
                     let div = `<div class="divPageSize" id="` + n + `">
                 <div class="row " >
