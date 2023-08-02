@@ -437,7 +437,7 @@
                 img.addEventListener('load', () => {
                     let div = `<div class="divPageSize" id="` + n + `">
                 <div class="row" >
-                <div class="row" id="row` + n + `">Image Description</div>
+                <div class="row center" id="row` + n + `">Image Description</div>
                 <div class="divSquareMaxi">
              <img data-lazy-image data-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzIDIiPjwvc3ZnPg==" 
              src="${img.src}" alt="Demo img" id="img${n}"> 
@@ -454,7 +454,7 @@
             </div>
        </div>`;
                     document.querySelector('#gallery-items').innerHTML += div;
-                    getImageDescription("img" + n)
+                    getImageDescription(n)
                     doPortItem(++n)
                 })
             }
@@ -470,12 +470,13 @@
             function getImageDescription(imageId) {
                 console.log("getImageDescription started")
                 console.log(imageId)
-                var image = document.getElementById(imageId);
+                var image = document.getElementById("img" + imageId);
                 EXIF.getData(image, function () {
                 var MetaData = EXIF.getAllTags(this);
                 //console.log(JSON.stringify(MetaData, null, "\t"));
                 console.log(JSON.stringify(MetaData.ImageDescription));    
                 console.log(MetaData.ImageDescription);  
+                document.getElementById("row1" + n).innerHTML = MetaData.ImageDescription;
                 });
             }            
             
