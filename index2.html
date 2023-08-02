@@ -428,9 +428,10 @@
     <div class="container" id='gallery-items'>
 
         <script>
-            window.onload = getExif;
+            //window.onload = getExif;
 
             function doPortItem(n) {
+                getExif
                 let img = document.createElement('img');
                 img.src = './imagegallery/' + n + '.jpg';
                 img.addEventListener('load', () => {
