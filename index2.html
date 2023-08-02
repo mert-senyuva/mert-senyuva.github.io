@@ -434,7 +434,7 @@
                 //getExif()
                 let img = document.createElement('img');
                 img.src = './imagegallery/' + n + '.jpg';
-                img.onload = getExif
+                img.onload = getImageDescription(n)
                 img.addEventListener('load', () => {
                     let div = `<div class="divPageSize" id="` + n + `">
                 <div class="row " >
