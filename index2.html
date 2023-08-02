@@ -469,6 +469,7 @@
             function getImageDescription(imageId) {
                 imageId = "img" + imageId
                 console.log("getImageDescription started")
+                console.log(imageId)
                 var image = document.getElementById(imageId);
                 EXIF.getData(image, function () {
                 var MetaData = EXIF.getAllTags(this);
