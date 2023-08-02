@@ -463,11 +463,11 @@
                 var image = document.getElementById("img1");
                 EXIF.getData(image, function () {
                 var MetaData = EXIF.getAllTags(this);
-                console.log(JSON.stringify(MetaData, null, "\t"));
+                //console.log(JSON.stringify(MetaData, null, "\t"));
                 });
             }
             function getImageDescription(imageId) {
-                let imageId = "img" + imageId
+                imageId = "img" + imageId
                 console.log("getImageDescription started")
                 var image = document.getElementById(imageId);
                 EXIF.getData(image, function () {
