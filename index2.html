@@ -454,6 +454,7 @@
             </div>
        </div>`;
                     document.querySelector('#gallery-items').innerHTML += div;
+                    getImageDescription("img${n}")
                     doPortItem(++n)
                 })
             }
@@ -469,7 +470,7 @@
             function getImageDescription(imageId) {
                 console.log("getImageDescription started")
                 console.log(imageId)
-                var image = imageId //document.getElementById(imageId);
+                var image = document.getElementById(imageId);
                 EXIF.getData(image, function () {
                 var MetaData = EXIF.getAllTags(this);
                 console.log(JSON.stringify(MetaData, null, "\t"));
